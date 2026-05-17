@@ -76,6 +76,12 @@ npm run generate:vocabulary
 
 자동 변환은 1차 변환입니다. `translation_status = needs_review` 또는 `tags`에 `needs_review`가 있는 레코드는 한국어 뜻을 수동 검수하는 것이 좋습니다.
 
+검수 완료된 `data/normalized/vocabulary.n3.json`에서 Supabase seed SQL만 다시 만들려면 아래 명령을 사용합니다.
+
+```sh
+npm run generate:seed
+```
+
 ## Local Development
 
 ```sh

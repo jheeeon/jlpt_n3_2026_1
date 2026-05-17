@@ -38,3 +38,13 @@ priority는 1~5다.
 - 1: MVP 반복 우선순위 낮음
 
 현재 생성기는 영어 meaning과 source tags를 바탕으로 heuristic priority를 부여한다.
+
+## Reviewed Translation Seed
+
+검수 완료된 `data/normalized/vocabulary.n3.json`에서 Supabase seed SQL만 다시 생성할 때는 아래 명령을 사용한다.
+
+```sh
+npm run generate:seed
+```
+
+이 명령은 raw CSV 자동 변환을 다시 수행하지 않고, 현재 normalized JSON을 그대로 SQL로 변환한다.
