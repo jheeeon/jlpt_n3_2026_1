@@ -38,8 +38,8 @@ export default function App() {
   const daysUntilExam = getDaysUntilExam();
   const progressById = useMemo(() => progressMap(progress), [progress]);
   const dailyWords = useMemo(
-    () => selectDailyVocabulary(words, progressById, todayKey),
-    [progressById, todayKey, words],
+    () => selectDailyVocabulary(words, todayKey),
+    [todayKey, words],
   );
   const memorizedCount = progress.filter((item) => item.isMemorized).length;
   const favoriteCount = progress.filter((item) => item.isFavorite).length;
