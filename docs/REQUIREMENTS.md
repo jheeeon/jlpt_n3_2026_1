@@ -6,13 +6,23 @@
 
 MVP의 핵심은 단어장이다. 문법 화면은 아직 미정이므로 버튼만 만들고 동작은 넣지 않는다.
 
+## 현재 구현 상태
+
+2026-05-18 현재:
+
+- GitHub Pages 배포 workflow가 성공했다.
+- Supabase schema와 seed SQL이 준비되어 있다.
+- `vocabulary` 데이터 `2140`개가 정규화되어 있다.
+- `needs_review` 번역은 모두 해소되어 있다.
+- `vocabulary_progress`를 통해 여러 디바이스가 같은 진행 상태를 공유한다.
+
 ## 포함 범위
 
 - React + TypeScript + Vite + TailwindCSS
 - GitHub Pages 배포
 - Supabase 공개 데이터 사용
 - N3 vocabulary 전체 seed 데이터
-- 영어 meaning에서 한국어 meaning으로 자동 변환한 JSON
+- 영어 meaning에서 한국어 meaning으로 변환 및 검수 완료한 JSON
 - Supabase에 직접 실행 가능한 seed SQL
 - 오늘의 단어 30개
 - priority 기반 단어 선정
@@ -34,10 +44,10 @@ MVP의 핵심은 단어장이다. 문법 화면은 아직 미정이므로 버튼
 
 ## 완료 기준
 
-- Supabase schema와 seed SQL을 실행할 수 있다.
-- 앱이 Supabase에서 단어 데이터를 불러온다.
-- 오늘의 단어 30개가 표시된다.
-- 카드에는 `word`, `reading`, `meaningKo`가 표시된다.
-- 암기 완료와 즐겨찾기가 Supabase에 저장된다.
-- 다른 디바이스에서 같은 진행 상태를 볼 수 있다.
-- 문법 학습 버튼은 보이지만 화면 전환이나 기능은 없다.
+- Supabase schema와 seed SQL을 실행할 수 있다. 완료
+- 앱이 Supabase에서 단어 데이터를 불러온다. 완료
+- 오늘의 단어 30개가 표시된다. 완료
+- 카드에는 `word`, `reading`, `meaningKo`가 표시된다. 완료
+- 암기 완료와 즐겨찾기가 Supabase에 저장된다. 완료
+- 다른 디바이스에서 같은 진행 상태를 볼 수 있다. 완료
+- 문법 학습 버튼은 보이지만 화면 전환이나 기능은 없다. 완료

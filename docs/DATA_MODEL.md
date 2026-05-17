@@ -4,6 +4,14 @@
 
 N3 단어 정규화 데이터다.
 
+현재 데이터:
+
+- 총 `2140`개
+- `manual`: 1741
+- `auto_exact`: 163
+- `auto_token`: 236
+- `needs_review`: 0
+
 핵심 컬럼:
 
 - `id`: deterministic uuid
@@ -17,6 +25,8 @@ N3 단어 정규화 데이터다.
 - `source`: 원천 파일
 - `source_order`: CSV 순서
 - `translation_status`: `manual`, `auto_exact`, `auto_token`, `needs_review`
+
+현재 `needs_review`는 남아 있지 않다. 이후 새 raw 데이터에서 자동 변환을 다시 수행하면 임시로 생길 수 있다.
 
 ## vocabulary_progress
 
@@ -32,6 +42,8 @@ N3 단어 정규화 데이터다.
 - `updated_at`: 갱신 시각
 
 MVP에서는 사용자별 분리를 하지 않는다. 모든 디바이스가 같은 전역 진행 상태를 본다.
+
+`vocabulary.id`는 deterministic uuid라 seed SQL을 다시 실행해도 기존 `vocabulary_progress` 연결이 유지된다.
 
 ## SQL
 

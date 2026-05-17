@@ -29,3 +29,17 @@
 - 상태: 확정
 - 결정: open-anki N3 CSV를 자동 변환해 JSON과 Supabase seed SQL로 저장한다.
 - 날짜: 2026-05-17
+
+## D-006 번역 검수본 적용
+
+- 상태: 확정
+- 결정: `vocabulary-n3-gptized.json` 검수본을 정식 `data/normalized/vocabulary.n3.json`으로 교체하고 seed SQL을 재생성한다.
+- 날짜: 2026-05-18
+- 이유: 기존 `needs_review` 1741개를 모두 한국어 암기용 뜻으로 교체했으며, `id`가 유지되어 기존 진행 상태와 호환된다.
+
+## D-007 seed 재생성 방식
+
+- 상태: 확정
+- 결정: 검수 완료 JSON에서는 `npm run generate:seed`로 SQL만 재생성한다.
+- 날짜: 2026-05-18
+- 이유: `npm run generate:vocabulary`는 raw CSV 자동 변환을 다시 수행해 검수 완료 번역을 덮어쓸 수 있다.
