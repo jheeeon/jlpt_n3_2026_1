@@ -1,4 +1,4 @@
-import { Bookmark, Check, RotateCcw } from "lucide-react";
+import { Bookmark, Check } from "lucide-react";
 import type { Vocabulary, VocabularyProgress } from "../types/vocabulary";
 
 type VocabularyCardProps = {
@@ -56,15 +56,16 @@ export function VocabularyCard({
             type="button"
             className={`grid h-10 w-10 place-items-center rounded-md border transition ${
               isMemorized
-                ? "border-matcha bg-matcha text-white"
-                : "border-ink/15 bg-white text-ink/65 hover:border-matcha hover:text-matcha"
+                ? "border-matcha/80 bg-matcha/15 text-matcha shadow-[inset_0_0_0_1px_rgba(95,128,100,0.18)]"
+                : "border-ink/15 bg-white text-ink/45 hover:border-matcha/60 hover:text-matcha"
             }`}
-            title={isMemorized ? "다시 복습" : "암기 완료"}
-            aria-label={isMemorized ? "다시 복습" : "암기 완료"}
+            title={isMemorized ? "암기 완료 해제" : "암기 완료"}
+            aria-label={isMemorized ? "암기 완료 해제" : "암기 완료"}
+            aria-pressed={isMemorized}
             disabled={isSaving}
             onClick={() => onToggleMemorized(word)}
           >
-            {isMemorized ? <RotateCcw size={18} /> : <Check size={18} />}
+            <Check size={18} strokeWidth={isMemorized ? 3 : 2} />
           </button>
         </div>
       </div>

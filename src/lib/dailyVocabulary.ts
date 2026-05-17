@@ -18,11 +18,9 @@ function scoreWord(
 ): number {
   const priorityWeight = word.priority * 100_000;
   const favoriteWeight = progress?.isFavorite ? 35_000 : 0;
-  const memorizedPenalty = progress?.isMemorized ? 55_000 : 0;
-  const reviewPenalty = (progress?.reviewCount ?? 0) * 1200;
   const stableRandom = hashString(`${dateKey}:${word.id}`) % 50_000;
 
-  return priorityWeight + favoriteWeight + stableRandom - memorizedPenalty - reviewPenalty;
+  return priorityWeight + favoriteWeight + stableRandom;
 }
 
 export function selectDailyVocabulary(
