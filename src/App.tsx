@@ -32,7 +32,7 @@ export default function App() {
   const [progress, setProgress] = useState<VocabularyProgress[]>([]);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [savingIds, setSavingIds] = useState<Set<string>>(new Set());
-  const [notice, setNotice] = useState<string>("");
+  const [saveError, setSaveError] = useState<string>("");
 
   const todayKey = getTodayKey();
   const daysUntilExam = getDaysUntilExam();
@@ -71,7 +71,7 @@ export default function App() {
   ) {
     const current = progressById.get(word.id) ?? emptyProgress(word.id);
     const next = makeNext(current);
-    setNotice("");
+    setSaveError("");
     setProgress((items) => {
       const withoutCurrent = items.filter((item) => item.vocabularyId !== word.id);
       return withoutCurrent.concat(next);
@@ -84,13 +84,12 @@ export default function App() {
         const withoutCurrent = items.filter((item) => item.vocabularyId !== word.id);
         return withoutCurrent.concat(saved);
       });
-      setNotice("진행 상태가 Supabase에 저장되었습니다.");
     } catch (error) {
       setProgress((items) => {
         const withoutCurrent = items.filter((item) => item.vocabularyId !== word.id);
         return current.vocabularyId ? withoutCurrent.concat(current) : withoutCurrent;
       });
-      setNotice(error instanceof Error ? error.message : "저장에 실패했습니다.");
+      setSaveError(error instanceof Error ? error.message : "저장에 실패했습니다.");
     } finally {
       setSavingIds((ids) => {
         const nextIds = new Set(ids);
@@ -177,9 +176,9 @@ export default function App() {
           </nav>
         </header>
 
-        {notice ? (
-          <p className="mb-3 rounded-md border border-matcha/20 bg-matcha/10 px-3 py-2 text-sm text-ink/75">
-            {notice}
+        {saveError ? (
+          <p className="mb-3 rounded-md border border-persimmon/30 bg-persimmon/10 px-3 py-2 text-sm text-ink/75">
+            {saveError}
           </p>
         ) : null}
 
